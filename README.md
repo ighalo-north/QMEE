@@ -8,7 +8,7 @@ This is data from my artificial selection experiment. Each group (each row) comp
 
 A key hypothesis is that light-avoidance is heritable, in other words, the lightscores in the selection group should decrease over generation and the lightscores in the control group should not change over generations.
 
-<br>
+<br></br>
 
 The raw data comprises 23 generations of data. Each row contains the following information from left to right:
 
@@ -32,5 +32,8 @@ The raw data comprises 23 generations of data. Each row contains the following i
 -   prop_out (double; flies_in / flies_out)
 
 </ul>
+
+<br></br>
+The script assignment1.R reads in the relevant data, runs two statistical analyses, and generates 5 plots.
 
 </html>
