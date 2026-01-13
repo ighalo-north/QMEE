@@ -3,6 +3,7 @@
 #this script reads a spreadsheet and does a calculation
 
 #read in the spreadsheet, load necessary libraries----
+## BMB: old-school R people like me prefer 'package' ...
 library(readxl)
 library(tidyverse)
 library(ggplot2)
@@ -21,6 +22,8 @@ levels(mydata$Maze)
 mazeCon <- c(-3, 1, 1, 1)
 contrasts(mydata$Maze) <- cbind(mazeCon)
 
+## BMB: what are the aov() and lmer() telling you  differently?
+
 #do an anova
 aov.mazeAvsBCD <- aov(Lightscore~Treatment*Generation*Sex*Maze, data = mydata)
 summary(aov.mazeAvsBCD, split=list(Maze=list(mazeCon=1,other=2)))
@@ -35,11 +38,26 @@ mydata$TrtLin <- factor(paste(mydata$Treatment, mydata$Lineage, sep = "_"))
 #run a new model with fixed and random factors----
 newmodel <- lmer(Lightscore ~ Generation + Sex + (1|Treatment) + (1|TrtLin), data = mydata)
 newmodel
+## BMB: as long as we're here
+##  * treatment should be almost certainly be a fixed effect
+##  * you can code lineage-within-treatment as (1|Treatment:Lineage)
+##  * you should probably be fitting a random-slopes model
+##    
+
+bbmodel <- lmer(Lightscore ~ Generation + Sex + Treatment +
+                  (Generation|Treatment:Lineage), data = mydata)
+## BMB: convergence warning, etc.
+
 
 #create small dataframe for plotting lightscore means----
 lightscore_plot <- mydata %>%
   group_by(Generation, TrtLin, Treatment) %>%
   summarise(meanScore = mean(Lightscore, na.rm=TRUE))
+## BMB can use .by=
+
+## BMB could do this by (1) converting "S" to "Selection", "C"
+## to "Control", etc., then paste0(), or (2) setting up a translation
+## table (or use interaction() + recoding)
 
 #create a different, larger dataframe----
 sum_sex <- mydata%>%
@@ -63,6 +81,7 @@ sum_sex <- mydata%>%
     ),
     .groups = "drop")
 
+## BMB: see .funs argument of across()
 
 #4 plots----
 ggplot(lightscore_plot, aes(x=lightscore_plot$Generation, y=lightscore_plot$meanScore, colour=lightscore_plot$TrtLin, group=lightscore_plot$TrtLin)) +
@@ -103,4 +122,7 @@ ggplot(sum_sex, aes(x=Generation, y=Lightscore_mean, colour=avged,group=avged)) 
        x="generation")+
   theme_bw()
 
+## BMB: good, but you can repeat less code (shared info among ggplots)
+## mark: 2
 #end----
+

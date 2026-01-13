@@ -1,5 +1,7 @@
 # QMEE
 
+**BMB**: why use HTML markup in a .md file? Why not just Markdown ... ??
+
 bio708
 
 <html>
@@ -7,6 +9,8 @@ bio708
 This is data from my artificial selection experiment. Each group (each row) completes a light-avoidance assay (light maze). After a period of time, the flies' distribution across 16 vials is represented in 16 columns. A weighted average is referred to as their "lightscore".
 
 A key hypothesis is that light-avoidance is heritable, in other words, the lightscores in the selection group should decrease over generation and the lightscores in the control group should not change over generations.
+
+**BMB**: be careful with "not change" (drift etc.)
 
 <br></br>
 
