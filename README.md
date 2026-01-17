@@ -41,7 +41,7 @@ The raw data comprises 23 generations of data. Each row contains the following i
 The script assignment1.R reads in the relevant data, runs two statistical analyses, and generates 5 plots.
 
 <br></br>
-The script clean_raw_alan.R cleans the script raw_alan_gen24 and saves a clean rds file
-The script read_rds.R reads the created .rds file and plots two histograms
+The script `clean_raw_alan.R` cleans the script `raw_alan_gen24` and saves a clean rds file
+The script `read_rds.R` reads the created .rds file and plots two histograms
 
 </html>
