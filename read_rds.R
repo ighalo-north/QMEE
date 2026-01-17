@@ -24,3 +24,5 @@ ggplot(imported_alan_data, aes(x = grp, y = Lightscore)) +
   theme_bw() +
   ## adjust = 1/4 does less smoothing
   geom_violin(fill = "gray", adjust = 1/4)
+
+## mark: 2
