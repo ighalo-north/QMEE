@@ -2,8 +2,8 @@
 
 #this script reads a spreadsheet and does a calculation
 
-#read in the spreadsheet, load necessary libraries----
-## BMB: old-school R people like me prefer 'package' ...
+#read in the spreadsheet, load necessary pkgs----
+
 library(readxl)
 library(tidyverse)
 library(ggplot2)
@@ -81,7 +81,7 @@ sum_sex <- mydata%>%
     ),
     .groups = "drop")
 
-## BMB: see .funs argument of across()
+## BMB: see .funs argument of across() - thanks
 
 #4 plots----
 ggplot(lightscore_plot, aes(x=lightscore_plot$Generation, y=lightscore_plot$meanScore, colour=lightscore_plot$TrtLin, group=lightscore_plot$TrtLin)) +

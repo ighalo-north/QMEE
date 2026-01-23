@@ -1,6 +1,8 @@
 # QMEE
 
 **BMB**: why use HTML markup in a .md file? Why not just Markdown ... ??
+**me**: idk any markdown syntax but i did a course on web design in undergrad so html feels easier for me
+
 
 bio708
 
@@ -8,9 +10,9 @@ bio708
 
 This is data from my artificial selection experiment. Each group (each row) completes a light-avoidance assay (light maze). After a period of time, the flies' distribution across 16 vials is represented in 16 columns. A weighted average is referred to as their "lightscore".
 
-A key hypothesis is that light-avoidance is heritable, in other words, the lightscores in the selection group should decrease over generation and the lightscores in the control group should not change over generations.
+A key hypothesis is that light-avoidance is heritable, in other words, the lightscores in the selection group should decrease over generation.
 
-**BMB**: be careful with "not change" (drift etc.)
+**BMB**: be careful with "not change" (drift etc.) - thanks
 
 <br></br>
 
@@ -45,8 +47,7 @@ The script `clean_raw_alan.R` cleans the script `raw_alan_gen24` and saves a cle
 The script `read_rds.R` reads the created .rds file and plots two histograms
 
 <br></br>
-The script assignment.3 is for data visualization. 
+The script `assignment.3` is for data visualization. 
 
-idk any markdown syntax so this file is in html cause it's slightly faster for me, might switch later this semester
 
 </html>

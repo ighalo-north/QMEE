@@ -70,11 +70,13 @@ ggplot(
     title = "proportion of flies completing the maze over generations",
     y = "lightscore",
     x = "generation")
+#the warnings here are fine, some values have been removed as they were NA
+  #other values went past 1.00 so were removed
 
 #i wanted to show the the proportion in and out is relatively stable over time,
   #so i chose a scatterplot and added two lines of best fit, without standard error
     #added jitter to prevent overlapping points
 
-#made the colours colourblindfriendly (sorry about the previous assignments)
+#made the colours colourblindfriendly (sorry about colours in the previous assignments)
 
 #i tried changing the legend title to Treatment but it won't budge

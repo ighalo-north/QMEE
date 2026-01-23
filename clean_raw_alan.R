@@ -1,11 +1,10 @@
 #clean raw data
 library(readxl)
 library(tidyverse)
-library(ggplot2) ## BMB: don't need to load ggplot2 if you've loaded tidyverse
+
 library(clock) #i tried to use this library to handle the times in my data, but i couldn't figure it out
 ##  the chron() package might be useful (I dug around  in  https://cran.r-project.org/web/views/TimeSeries.html for help)
 
-## BMB: OK.
 library(skimr)
 '
 assignment 2 instructions
@@ -29,8 +28,7 @@ sapply(alan, \(x) class(x)[1])
 names(alan)
 skim(alan) #more examine structure, check for missing vals
 
-#throw out the redundant dates
-## BMB: what are these redundant with? their _num equivalents?
+#throw out the redundant dates (redundant with their _num equivalents)
 alan <- subset(alan, select = -c(start_time, end_time, Time_Elapsed))
 (alan 
   |> summary()
@@ -43,15 +41,10 @@ generations_total <- (tail(na.omit(alan$Generation, n = 1)))[1]
 #use tidyverse to change some char variables to factors
 (alan <- alan
   |> mutate(across(c(Maze, Sex, Treatment, Maze_Order, blind), as.factor)))
-## BMB: do these have the levels (order)  you  want?
+#order of the levels doesn't matter in my experiment, no reason to reorder
 
 #lineage should be nested within treatment for all analysis
-alan$TrtLin <- factor(paste(alan$Treatment, alan$Lineage, sep = ""))
-## BMB: you can use mutate() to  use fewer $, e.g.
-alan <- (alan
-  |> mutate(TrtLin = factor(paste0(Treatment, Lineage)))
-)
-## or even interaction(Treatment, Lineage, drop = TRUE)
+alan$TrtLin <- interaction(alan$Treatment, alan$Lineage, drop = TRUE, sep = "")
 
 ## BMB: nice.
 vial_number1 <- match(c("1"), names(alan))
@@ -76,19 +69,6 @@ lapply(alan, find_bad_nums)
   )
 
 #manipulating data so the graphs are prettier
-'
-penguin_alan_summed <- (alan 
-                        |> summarise(across(c(Lightscore, prop_out),
-                                            list(
-                                              mean = ~ mean(.,na.rm=TRUE),
-                                              se   = ~ sd(., na.rm = TRUE) / sqrt(sum(!is.na(.x)))),
-                                            .by = c(Generation, TrtLin, Sex))
-                        )
-) '#this does not work, im not sure why
-
-## BMB: the main problem is that .by goes *outside* across()
-## apparently (.x) works just as well as (.) in a ~ - function, which
-## surprised me
 alan_sum <- (alan 
   |> summarise(across(c(Lightscore, prop_out),
                       .fns = list(
@@ -98,7 +78,7 @@ alan_sum <- (alan
                )
 )
 
-#so i did it this way instead even though it's messier, it works
+#messay altnerative to the above
 alan_sum <- alan |>
   group_by(Generation, TrtLin, Sex) |>
   summarise(
@@ -110,8 +90,8 @@ alan_sum <- alan |>
            ),
            .names = "{.col}_{.fn}" #rename columns Lightscore_mean, Lightscore_se, etc
     ),
-    .groups = "drop") #i dont actually know what this does but I get an error without it
-## BMB: needing to ungroup is what .by is supposed to  avoid
+    .groups = "drop") ## BMB: needing to ungroup is what .by is supposed to  avoid
+
 skim(alan_sum) #summary to make sure it worked - yay
 
 
