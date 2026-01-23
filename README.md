@@ -1,5 +1,7 @@
 # QMEE
 
+**BMB**: why use HTML markup in a .md file? Why not just Markdown ... ??
+
 bio708
 
 <html>
@@ -7,6 +9,8 @@ bio708
 This is data from my artificial selection experiment. Each group (each row) completes a light-avoidance assay (light maze). After a period of time, the flies' distribution across 16 vials is represented in 16 columns. A weighted average is referred to as their "lightscore".
 
 A key hypothesis is that light-avoidance is heritable, in other words, the lightscores in the selection group should decrease over generation and the lightscores in the control group should not change over generations.
+
+**BMB**: be careful with "not change" (drift etc.)
 
 <br></br>
 
@@ -37,8 +41,8 @@ The raw data comprises 23 generations of data. Each row contains the following i
 The script assignment1.R reads in the relevant data, runs two statistical analyses, and generates 5 plots.
 
 <br></br>
-The script clean_raw_alan.R cleans the script raw_alan_gen24 and saves a clean rds file
-The script read_rds.R reads the created .rds file and plots two histograms
+The script `clean_raw_alan.R` cleans the script `raw_alan_gen24` and saves a clean rds file
+The script `read_rds.R` reads the created .rds file and plots two histograms
 
 <br></br>
 The script assignment.3 is for data visualization. 
