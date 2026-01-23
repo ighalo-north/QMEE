@@ -40,4 +40,9 @@ The script assignment1.R reads in the relevant data, runs two statistical analys
 The script clean_raw_alan.R cleans the script raw_alan_gen24 and saves a clean rds file
 The script read_rds.R reads the created .rds file and plots two histograms
 
+<br></br>
+The script assignment.3 is for data visualization. 
+
+idk any markdown syntax so this file is in html cause it's slightly faster for me, might switch later this semester
+
 </html>
