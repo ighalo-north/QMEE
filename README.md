@@ -1,9 +1,5 @@
 # QMEE
 
-**BMB**: why use HTML markup in a .md file? Why not just Markdown ... ??
-**me**: idk any markdown syntax but i did a course on web design in undergrad so html feels easier for me
-
-
 bio708
 
 <html>
@@ -12,7 +8,6 @@ This is data from my artificial selection experiment. Each group (each row) comp
 
 A key hypothesis is that light-avoidance is heritable, in other words, the lightscores in the selection group should decrease over generation.
 
-**BMB**: be careful with "not change" (drift etc.) - thanks
 
 <br></br>
 
@@ -47,7 +42,10 @@ The script `clean_raw_alan.R` cleans the script `raw_alan_gen24` and saves a cle
 The script `read_rds.R` reads the created .rds file and plots two histograms
 
 <br></br>
-The script `assignment.3` is for data visualization. 
+The script `assignment3.R` is for data visualization.
+
+<br></br>
+The text file `assignment4_statphil.txt` discusses the statistical reporting in Zwaan, Bijlsma, & Hoekstra, 1995.
 
 
 </html>

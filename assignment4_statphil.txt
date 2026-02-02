@@ -1,0 +1,136 @@
+Pick one paper in your field.
+Carefully read any sections of the paper that report the results of statistical tests 
+	(including tests of assumptions; 
+	effects of nuisance parameters/covariates; 
+	and the primary scientific inferences).
+
+Write a document that gives the bibliographic reference of the paper and, 
+for at least three of the tests done by the authors,
+
+(1) quote their presentation of the test results;
+(2) describe the issues, if any, with their presentation;
+(3) if there is any room for improvement in the presentation, 
+	write a revised statement that more accurately reflects what inferences 
+	we should make from the results.
+
+Table 1 of Dushoff, Kain, and Bolker (2019) may be useful 
+	(although you are not required to use “clarity” language).
+
+Assignment 4
+Paper: Zwaan, B., Bijlsma, R., & Hoekstra, R. F. (1995).
+		ARTIFICIAL SELECTION FOR DEVELOPMENTAL TIME IN 
+		DROSOPHILA MELANOGASTER IN RELATION TO THE EVOLUTION OF AGING: 
+		DIRECT AND CORRELATED RESPONSES. Evolution, 49(4), 635-648. 
+		https://doi.org/10.1111/j.1558-5646.1995.tb02300.x
+
+
+Test 1: Developmental Time and Viability
+"Figure 2 shows that selection for developmental time was very successful for both males and females. In the final generation, mean developmental time was about 9.5, 11, and 13.5 d for fast, control,
+and slow lines, respectively, and these differences appear to be statistically significant (ANOVA; table 1). The data in
+table 1 show significant differences between replicates within one treatment. However, from generation 3 onward, all replicates within one treatment significantly differed from any
+other replicate of the other treatments (SNK tests).
+
+The sexes did not respond differently to selection (treatment by sex), and no differences in developmental time were observed between the sexes (sex). In general, females are found
+to have a shorter developmental period than males, but this difference seems to become less prevalent or even to disappear at higher egg-densities (Zwaan et al. 1991), which
+perhaps explains the absence of sex differences in this experiment. In the fast lines, relaxation of selection resulted in
+a significantly increased developmental time."
+
+Describe the Issue: The authours cannot say "they sexes did not respond differently 
+	to selection" without an equivalence test. 
+Further, the cited study says the effect becomes less prevalent at high densities, 
+	not that it disappears entirely.
+
+Revised Statement: Although females typically have shorter developmental periods 
+	than males, the effect of sex on developmental time here was statistically unclear.
+
+
+Test 2: Body Weight
+Adult body weight was significantly affected by the applied
+selection: fast females and males had lower body weights,
+whereas slow females and males had higher body weights
+than the control flies (fig. 4; table 4). There was considerable
+variation in body weight among the generations, and, on the
+whole, female body weight, as also shown in figure 4, appears
+to be more variable than male body weight, probably as the
+result of confounding effects of egg production of females.
+As expected, males were lighter than females, but apart from
+this difference, females and males did not differ in the direction 
+of response to selection (table 4). Relaxed fast lines
+had smaller body weights than selected fast lines, which was
+not anticipated. However, relaxation of the slow lines had no
+significant effect on the body weight of the flies (ANOVAs
+not shown). The differences in adult body weight were still
+significantly present 12 generations after selection was
+stopped for both females and males (checkup, fig. 4; ANOVA
+not shown). Note that both dry weight and fat-free dry weight
+showed the same significant overall effects as described for
+body weight.
+
+On the basis of the observations that, (1) fat fractions and
+also water fractions (ANOVA not shown) were unaffected
+by selection, (2) the physiological correlation between fat
+fraction and starvation resistance remained intact, and (3)
+live weight, dry, and fat-free dry weight, and fat weight were
+affected in identical ways, one can conclude that selection
+for developmental time had exerted no effect on the grossbody 
+composition of the flies."
+
+Describe Issues:
+They say that "as expected, males were larger than females" but to what degree?
+	D. melanogaster males are usually some % lighter than females. "Relaxed fast lines
+	had smaller body weights than selected fast lines, which was
+	not anticipated." The authours need to present the size of the effect (how much), not just whether there was an effect or not
+	they should have presented how much lighter each type of male was.
+	"one can conclude that selection [...] had exerted no effect on the grossbody composition of the flies" this statement is incorrect.
+
+Revised Statement: We detected no differences in the grossbody composition between 
+	treatments and thus the effect of selection for developmental time on 
+	body size was statistically unclear.
+	In all lineages, males had smaller body weights than females, which is typical of this species.
+	We detected no differences in the difference between treatment-matched male and female body sizes.
+
+
+Test 3: Virgin Longevity.
+"The longevities of the
+fast and slow lines of both sexes were lower than control
+longevity from generation 4 to 9. From generation 11 onward,
+the selected lines as well as the relaxed lines had the same
+longevities as the control lines (fig. 6; ANOVAs not shown).
+[...]
+In the twelfth postselection generation, apart from determining the longevity for the lines at 29°C, longevity was also
+measured at 25°C, because possibly longevity differences
+were not detectable for relative short adult life span at high
+temperature. It clearly stands from table 6 and figure 7, that
+life span of Drosophila melanogaster is not influenced by
+selection for developmental time, even when possible disrupting selection effects on the genetic background of the
+lines would supposedly have disappeared after 12 generations
+without selection. There was a significant effect of adult temperature 
+and of sex and a significant sex-by-temperature interaction,
+with females living longer at 29°C and males living
+longer at 25°C (fig. 7). These observations corroborated previous results (Zwaan et al. 1992). It is important to note that
+the longevity rank of the lines was not affected by test temperature (replica within treatment by temperature) and that
+females from the FA, line consistently had an exceptionally
+short life span."
+
+Describe Issues: "The longevities of the
+fast and slow lines of both sexes were lower than control
+longevity from generation 4 to 9." how much lower?
+"From generation 11 onward,
+the selected lines as well as the relaxed lines had the same
+longevities as the control lines (fig. 6; ANOVAs not shown)." Not sifnificanly different is distinct from The Same. We can't determine what they meant because they didn't include the ANOVA.
+Reporting null results is important.
+Even though there is a temperature interaction, they should still interpret the main effects. What is the direction of the effect of adult temp for each sex?
+"longevity rank of the lines was not affected by test temperature" show us the ANOVA!
+
+Revised Statement: Longevity in both sexes of the fast lines increased/decreased [numerical descriptor] with selection
+	while the longevity in both sexes of the slow lines increased/decreased [numeric descriptor] with selection.
+From generation 11 onward, we did not detect a difference in longevity between any of the selected lines, the relaxed lines, or the control lines (ANOVA results).
+We did not detect an effect of test temperature on longevity rank, but temperature had an effect on longevity such that individuals (regardless of sex) lived (x amount longer/short) 
+	for each 1 degree Celsius increase in temperature.
+There was a significant effect of adult temperature and of sex and a significant 
+	sex-by-temperature interaction, with females living longer at 29°C and males living. 
+longer at 25°C (fig. 7).
+
+
+Bonus Issue: Figure 8 is hard to read
+
