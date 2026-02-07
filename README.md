@@ -1,19 +1,14 @@
-# QMEE
+# BIO 708: Quant. Methods in Ecol + Evol
 
-bio708
+***Keren Ighalo 2026***
 
-<html>
-
-This is data from my artificial selection experiment. Each group (each row) completes a light-avoidance assay (light maze). After a period of time, the flies' distribution across 16 vials is represented in 16 columns. A weighted average is referred to as their "lightscore".
+Data from my artificial selection experiment. Each group (row) completes a light-avoidance assay (light maze). After a period of time, the flies' distribution across 16 vials is represented in 16 columns.
 
 A key hypothesis is that light-avoidance is heritable, in other words, the lightscores in the selection group should decrease over generation.
 
+### **Artificial Selection (Light Maze) Data**
 
-<br></br>
-
-The raw data comprises 23 generations of data. Each row contains the following information from left to right:
-
-<ul>
+File `raw_alan_gen25.xlsx` comprises 25 generations of data. Each row contains the following information from left to right:
 
 -   Generation (numeric generation from 1 - 23)
 -   time of day (string, morn or aft)
@@ -22,6 +17,7 @@ The raw data comprises 23 generations of data. Each row contains the following i
 -   Treatment (string, C or S)
 -   Lineage (string, 1 - 4; each independent population of fruit flies has a unique identifier S1-4, C1-4)
 -   Maze (string, A B C or D; which light maze was this group tested in)
+-   Light_Side (string, left or right)
 -   Sex (string, M or F)
 -   columns labelled 1-16 are vials
 -   Lightscore (double; a weighted average of the previous 16 columns)
@@ -32,20 +28,10 @@ The raw data comprises 23 generations of data. Each row contains the following i
 -   time_elapsed_num (double; end_time_num - start_time_num)
 -   prop_out (double; flies_in / flies_out)
 
-</ul>
+### **Main Scripts**
 
-<br></br>
-The script assignment1.R reads in the relevant data, runs two statistical analyses, and generates 5 plots.
+The script `clean_raw_alan.R` cleans the script `raw_alan_gen24` and generates a clean rds file in the main directory. The script `read_rds.R` reads the .rds file and plots two histograms.
 
-<br></br>
-The script `clean_raw_alan.R` cleans the script `raw_alan_gen24` and saves a clean rds file
-The script `read_rds.R` reads the created .rds file and plots two histograms
+### **Assignment Scripts**
 
-<br></br>
-The script `assignment3.R` is for data visualization.
-
-<br></br>
-The text file `assignment4_statphil.txt` discusses the statistical reporting in Zwaan, Bijlsma, & Hoekstra, 1995.
-
-
-</html>
+The script assignment1.R reads in the relevant data, runs two statistical analyses, and generates 5 plots. The script `assignment3.R` is for data visualization. The text file `assignment4_statphil.txt` discusses the statistical reporting in Zwaan, Bijlsma, & Hoekstra, 1995. The text file `assignment5.txt` describes my data and one or more of your questions from the point of view of measurement theory.

@@ -6,7 +6,7 @@ Write a separate script that reads in your .rds file and
   does something with it: either a calculation or a plot
 '
 
-alan <- readRDS("clean_alan_gen24.rds")
+alan <- readRDS("clean_alan_gen25.rds")
 
 #do a plot
 ggplot(alan |> filter(Treatment %in% c("S")), aes(y = Lightscore)) + geom_histogram()

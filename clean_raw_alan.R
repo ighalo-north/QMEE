@@ -6,34 +6,18 @@ library(clock) #i tried to use this library to handle the times in my data, but 
 ##  the chron() package might be useful (I dug around  in  https://cran.r-project.org/web/views/TimeSeries.html for help)
 
 library(skimr)
-'
-assignment 2 instructions
-Examine the structure of the data you imported
-Examine the data for problems, and to make sure you understand the R classes
-Make one or two plots that might help you see whether your data have any errors or anomalies
 
-Report your results; fix any problems that you conveniently can
-Use the saveRDS function in R to save a clean (or clean-ish) version of your data
-Use the .gitignore functionality in git – do not in general put “made” objects into your repo
-'
-
-alan <- read_excel("raw_alan_gen24.xlsx")
+alan <- read_excel("raw_alan_gen25.xlsx")
 sapply(alan,class)
-## maybe more  convenient - get just the first element
-sapply(alan, \(x) class(x)[1])
 
 (alan #examine the structure of the data and check for problems
   |> summary()
   |> print())
-names(alan)
+
 skim(alan) #more examine structure, check for missing vals
 
 #throw out the redundant dates (redundant with their _num equivalents)
 alan <- subset(alan, select = -c(start_time, end_time, Time_Elapsed))
-(alan 
-  |> summary()
-  |> print())
-
 
 #how many generations
 generations_total <- (tail(na.omit(alan$Generation, n = 1)))[1]
@@ -43,8 +27,9 @@ generations_total <- (tail(na.omit(alan$Generation, n = 1)))[1]
   |> mutate(across(c(Maze, Sex, Treatment, Maze_Order, blind), as.factor)))
 #order of the levels doesn't matter in my experiment, no reason to reorder
 
-#lineage should be nested within treatment for all analysis
+#lineage should be nested within treatment for all analyses
 alan$TrtLin <- interaction(alan$Treatment, alan$Lineage, drop = TRUE, sep = "")
+
 
 ## BMB: nice.
 vial_number1 <- match(c("1"), names(alan))
@@ -78,7 +63,7 @@ alan_sum <- (alan
                )
 )
 
-#messay altnerative to the above
+#messy altnerative to the above
 alan_sum <- alan |>
   group_by(Generation, TrtLin, Sex) |>
   summarise(
@@ -94,6 +79,9 @@ alan_sum <- alan |>
 
 skim(alan_sum) #summary to make sure it worked - yay
 
+#check that no lineage has >4 data points per generation
+check <- alan_sum |> count(TrtLin, Generation)
+stopifnot(all(check$n <= 4))
 
 #Make one or two plots that might help you see whether your data have any errors or anomalies
 ggplot(alan_sum |> filter(TrtLin %in% c("S1", "S2", "S3", "S4")), aes(x=Generation, y=Lightscore_mean, colour=TrtLin, group=TrtLin)) +
@@ -129,7 +117,7 @@ print(gg0)
 gg0 + filter(alan_sum, stringr::str_detect(TrtLin, "^C"))
 gg0 + filter(alan_sum, stringr::str_detect(TrtLin, "^S"))
 
-## or:
+#one facet per treatment:
 alan_sum2 <- mutate(alan_sum, grp = substr(TrtLin, 1, 1))
 gg0 + alan_sum2 + facet_wrap(~grp,  nrow = 1)
 
@@ -137,13 +125,10 @@ gg0 + alan_sum2 + facet_wrap(~grp,  nrow = 1)
 cat("data appear normal, no more than 4 data points per treatment per generation, all numeric values are in fact numeric")
 cat("no problems to report, none to fix")
 
-## BMB: did you check the '<= 4 data points per treatment' criterion
-## programmatically?
-ct <- alan_sum |> count(TrtLin, Generation)
-stopifnot(all(ct$n <= 4))
+
 
 #Use the saveRDS function in R to save a clean (or clean-ish) version of your data
-saveRDS(alan, "clean_alan_gen24.rds")
+saveRDS(alan, "clean_alan_gen25.rds")
 
 
 
