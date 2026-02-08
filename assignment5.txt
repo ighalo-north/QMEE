@@ -1,0 +1,117 @@
+Assignment 5: Keren Ighalo Feb 6
+
+Describe your data and one or more of your questions from the 
+	point of view of measurement theory, 
+  guided by the steps in Voje et al. 2023 Figure 1 
+	(note that this is not the same as Figure I).
+	
+That is: 
+- describe the theoretical context, relevant attributes, 
+- what you will measure on what kind of scale, 
+- and how this will affect your statistical analyses.
+
+Also, for at least one comparison 
+- discuss how you will decide whether a difference is “important” 
+you could specify a cutoff level, 
+    or describe how you will investigate this question further.
+
+Discussing Cutoff for Comparison----
+When comparing lightscores between selection and control,
+  I will decide if a difference is important based on both the mean and the distribution.
+I want to run a normal t test for Selection vs Control on Lightscore,
+  an anova for TrtLin on Lightscore
+my cutoff level will by 0.05 for each of these tests
+
+to decide on a cutoff for the magnitude of the difference between groups,
+  i will review previous heritability in light-avoidance and light-attraction,
+  then calculate what the heritability score for each lineage. this will help estimate 
+  what difference in score is "important"
+
+Nominal Scale Variables-----
+My clean data has 39 columns and 465 rows. Each row is one bservation of a group 
+	of same-sex (Sex: 2 levels (M, F)) flies in the same 
+	treatment (Treatment: 2 levels (S, C)) and population (Lineage: 4 levels (1, 2, 3, 4) 
+	that completes a maze (Maze: 4 levels (A, B, C, D)).
+Treatment and Lineage are combined into one variable (TrtLin: 8 levels (S1, S2, S3, S4, C1, C2, C3, C4)).
+Observations occur over a 2-5 day period (day: 5 levels (1, 2, 3, 4, 5)) in 
+	two sessions (time_of_day: 2 levels (morn, aft)).
+The placement of mazes from left to right accross the room varied to account for 
+effects of the room's door and vents. Technically this gives 24 possible maze orders,
+	but I only used two maze orders (Maze_Order: 2 levels (ABCD, CDAB)).
+Mazes A and C have light on the left, Mazes B and D have light on the right (Light_Side: 2 levels (left, right)).
+Observations either had one or two observers present (one person was me, the other 
+	person was mostly blind to the goals of the experiment, and was blind to the 
+	treatment of the flies).
+Whether a trial was blind or not is recorded as (blind: 2 levels (yes, no).
+	
+The variables Sex, Treatment, Lineage, TrtLin, day, Maze, time_of_day, Maze_Order, Light_Side, and blind
+	are measured on a nominal scale. The only meaningful data that can be derived from these
+	is directly from their labels. These variables will be used as categorical predictors/covariates.
+	I can make equivalence compairsons between different levels of each factor, but I
+	cannot make comparisons using order, differences or ratios between the levels.
+These variables are mostly for measuring the ID (who), status (what), or placement (where) of relevant things.
+
+
+Ratio Scale-----
+3 days before each trial, flies were sexed from vials containing eggs that were laid 
+	by the previous generation. To estimate the survivorship of each lineage, we record 
+	the number of vials (out of 12) whose eggs had not eclosed by the time they were 
+	expected to. This number is recorded in vials_uneclosed_by_sexing_day (numeric)
+
+Before each trial, the group of flies that will enter the maze is housed in 6 separate 
+	vials of 25 flies each (Flies_per_Vial (numeric)).
+If there is a problem with the vial (ie. females aren't virgins) then that 
+	vial is not used in the maze.
+In some cases, we had to allow some problem vials to complete the maze.
+Vials_Total_UsedInMaze (numeric) is the number of vials (groups of 25) that went into the maze.
+Vials_Larvae_UsedInMaze (numeric) is how many of the vials that went into the 
+	maze had signs of larvae in the vial.
+The starting group size of each trial is recorded in flies_in (numeric).
+
+Columns 11-26 are variables 1-16. Data in each cell represents the number of flies 
+	in that vial at the end of the trial. The sum of all flies that finished the 
+	maze is tabulated in total_Flies (numeric).
+The proportion of flies that exit the maze is tabulated by dividing total_Flies 
+	by flies_in to produce the values in prop_out (numeric).
+
+Each trial begins at start_time_num (numeric) and ends at end_time_num (numeric).
+Both of these variables are measured in 24 hour time, represented as real numbers (5:30pm --> 17.50)
+end_time_num - start_time_num = time_elapsed_num, which represents the amount of time 
+from the lifting of the maze doors to the time the CO2 needle enters the first vial of Maze A.
+
+Each of these variables vials_uneclosed_by_sexing_day, Flies_per_Vial, 
+	Vials_Larve_UsedInMaze, Vials_Total_UsedInMaze, flies_in, total_Flies, prop_out,
+	start_time_num, end_time_num, and time_elapsed_num are measured on a ratio scale.
+There is a meaningful 0 and each measurement either is a count, is a time, or has 
+	units with equally spaced increments. These variables cannot be reduced to nominal 
+	scales without losing important information.
+This type of variable will be continuous predictors and response variables in my linear 
+models. These are the most flexible as long as I only make comparisons between 
+these variables and not involve others of with measurement scales.
+
+
+Interval Scale-----
+The weighted mean of each group of flies across vials 1-16 represents the 
+	Lightscore (numeric) in that trial. Lightscores have a min of 1 and a max of 16, 
+	where 1 represents maximum light-avoidance and 16 reperesents minimum 
+	light-aavoidance (or, maximum light-attraction. Each number is evenly spaced and
+	the order matters, but there is no 0 so Lightscore is on an interval scale.
+I could shift the scale to 0 to 15, and that would be mathematically fine, 
+	but theoretically bad.
+16 isn't necessarily "twice as light-attracted" as 8, so I'm choosing to leave it as
+	1 to 16, interval scale.
+I won't use a log scale on this variable. If I want to do advanced calculations, I will 
+	start with the raw count data from variables 1-16 because ultimately Lightscore is 
+	just a summary of that data.
+
+Date isn't particularly meaningful at this point. 
+It's technically measured on an interval scale since the order is important 
+	but there is no real 0.
+If I use Date in any analyses, I could summarize the dates into seasons
+	(4 levels: Winter, Spring, Summer, Fall). This would make Date it a categorical 
+	variable measured on a nominal scale. Temperature was kept stable in the testing 
+	environment for the entire year, so it would be surprising/interesting 
+	to see if we can detect a clear difference in lightscores between seasons.
+	
+
+	
