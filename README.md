@@ -34,4 +34,5 @@ The script `clean_raw_alan.R` cleans the script `raw_alan_gen24` and generates a
 
 ### **Assignment Scripts**
 
-The script assignment1.R reads in the relevant data, runs two statistical analyses, and generates 5 plots. The script `assignment3.R` is for data visualization. The text file `assignment4_statphil.txt` discusses the statistical reporting in Zwaan, Bijlsma, & Hoekstra, 1995. The text file `assignment5.txt` describes my data and one or more of my research questions from the point of view of measurement theory.
+The script assignment1.R reads in the relevant data, runs two statistical analyses, and generates 5 plots. The script `assignment3.R` is for data visualization. The text file `assignment4_statphil.txt` discusses the statistical reporting in Zwaan, Bijlsma, & Hoekstra, 1995. The text file `assignment5.txt` describes my data and one or more of my research questions from the point of view of measurement theory. 
+Script `assingment6.R` relates to linear models and has diagnostic, prediction, and inferential plots.
