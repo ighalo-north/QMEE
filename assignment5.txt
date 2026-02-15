@@ -22,13 +22,20 @@ I want to run a normal t test for Selection vs Control on Lightscore,
   an anova for TrtLin on Lightscore
 my cutoff level will by 0.05 for each of these tests
 
+BMB:
+  
+* by the 'distribution' do you mean the statistical significance/clarity? (I can't see why the precise distribution, e.g. how close the conditional distribution is to Normality, would affect your judgement of importance?)
+* as discussed in class, it may not make sense to test for Normality. What is your plan if you can reject the H0 of Normality?
+
 to decide on a cutoff for the magnitude of the difference between groups,
   i will review previous heritability in light-avoidance and light-attraction,
   then calculate what the heritability score for each lineage. this will help estimate 
   what difference in score is "important"
 
+* BMB: the point of this exercise was to ask you to *specify a cutoff value for importance*, not to say *how* you would specify such a cutoff value.  It's unclear to me how you're going to use heritability values to inform you of the importance of a given difference between groups. (Heritability is unitless; presumably light attraction has units? I'll see in a minute when I read the next section ...) (I don't think you did much to describe the theoretical context. Why are you interested in measuring light avoidance? What are your selection regimes/treatments?) Running an ANOVA will not give you heritability (or confidence intervals on heritability) directly, and you haven't stated explicitly that you're interested in heritability ... ?)
+
 Nominal Scale Variables-----
-My clean data has 39 columns and 465 rows. Each row is one bservation of a group 
+My clean data has 39 columns and 465 rows. Each row is one observation of a group 
 	of same-sex (Sex: 2 levels (M, F)) flies in the same 
 	treatment (Treatment: 2 levels (S, C)) and population (Lineage: 4 levels (1, 2, 3, 4) 
 	that completes a maze (Maze: 4 levels (A, B, C, D)).
@@ -43,20 +50,22 @@ Observations either had one or two observers present (one person was me, the oth
 	person was mostly blind to the goals of the experiment, and was blind to the 
 	treatment of the flies).
 Whether a trial was blind or not is recorded as (blind: 2 levels (yes, no).
-	
+[BMB: 39 columns seems like a lot, but I guess I'll see what these are]
+  
 The variables Sex, Treatment, Lineage, TrtLin, day, Maze, time_of_day, Maze_Order, Light_Side, and blind
 	are measured on a nominal scale. The only meaningful data that can be derived from these
 	is directly from their labels. These variables will be used as categorical predictors/covariates.
-	I can make equivalence compairsons between different levels of each factor, but I
+	I can make equivalence comparisons between different levels of each factor, but I
 	cannot make comparisons using order, differences or ratios between the levels.
 These variables are mostly for measuring the ID (who), status (what), or placement (where) of relevant things.
-
 
 Ratio Scale-----
 3 days before each trial, flies were sexed from vials containing eggs that were laid 
 	by the previous generation. To estimate the survivorship of each lineage, we record 
 	the number of vials (out of 12) whose eggs had not eclosed by the time they were 
 	expected to. This number is recorded in vials_uneclosed_by_sexing_day (numeric)
+
+  [BMB: is survivorship of direct interest or is it a data-quality/confounder measure?]
 
 Before each trial, the group of flies that will enter the maze is housed in 6 separate 
 	vials of 25 flies each (Flies_per_Vial (numeric)).
@@ -73,6 +82,8 @@ Columns 11-26 are variables 1-16. Data in each cell represents the number of fli
 	maze is tabulated in total_Flies (numeric).
 The proportion of flies that exit the maze is tabulated by dividing total_Flies 
 	by flies_in to produce the values in prop_out (numeric).
+
+[BMB: oh, OK. You have data in wide format. You will probably need to convert to long format, or compute summaries, before analyzing your data.  'numeric' is not a complete description of the data scale; it could be interval or ratio ...]
 
 Each trial begins at start_time_num (numeric) and ends at end_time_num (numeric).
 Both of these variables are measured in 24 hour time, represented as real numbers (5:30pm --> 17.50)
@@ -91,18 +102,24 @@ these variables and not involve others of with measurement scales.
 
 
 Interval Scale-----
+[BMB: it probably makes sense to average, but you should think about whether there might be information in the among-vial variability that you're interested in ...]
+
+[BMB: the weighted mean of *what* across flies (light/dark choice)? Weighted by what (population)?]
+    
 The weighted mean of each group of flies across vials 1-16 represents the 
 	Lightscore (numeric) in that trial. Lightscores have a min of 1 and a max of 16, 
-	where 1 represents maximum light-avoidance and 16 reperesents minimum 
-	light-aavoidance (or, maximum light-attraction. Each number is evenly spaced and
+	where 1 represents maximum light-avoidance and 16 represents minimum 
+	light-avoidance (or, maximum light-attraction. Each number is evenly spaced and
 	the order matters, but there is no 0 so Lightscore is on an interval scale.
 I could shift the scale to 0 to 15, and that would be mathematically fine, 
-	but theoretically bad.
+	but theoretically bad.  [BMB: why? if it's an interval scale then shifting shouldn't matter theoretically?]
 16 isn't necessarily "twice as light-attracted" as 8, so I'm choosing to leave it as
 	1 to 16, interval scale.
 I won't use a log scale on this variable. If I want to do advanced calculations, I will 
 	start with the raw count data from variables 1-16 because ultimately Lightscore is 
 	just a summary of that data.
+
+[BMB: still not sure what the light score actually means. 
 
 Date isn't particularly meaningful at this point. 
 It's technically measured on an interval scale since the order is important 
@@ -113,5 +130,4 @@ If I use Date in any analyses, I could summarize the dates into seasons
 	environment for the entire year, so it would be surprising/interesting 
 	to see if we can detect a clear difference in lightscores between seasons.
 	
-
-	
+[BMB: not entirely clear (didn't need to be longer, but should be clearer what the light score actually represents). Also, you never completed the part where you were supposed to specify an importance cutoff. You said you would base it on heritability, but that doesn't seem to match with what you're measuring (a mean difference in some measure of phototaxis.  Mark: 1.9]
