@@ -1,22 +1,7 @@
-Pick one paper in your field.
-Carefully read any sections of the paper that report the results of statistical tests 
-	(including tests of assumptions; 
-	effects of nuisance parameters/covariates; 
-	and the primary scientific inferences).
+JD: Moved file and deleted front material
 
-Write a document that gives the bibliographic reference of the paper and, 
-for at least three of the tests done by the authors,
+## Assignment 4
 
-(1) quote their presentation of the test results;
-(2) describe the issues, if any, with their presentation;
-(3) if there is any room for improvement in the presentation, 
-	write a revised statement that more accurately reflects what inferences 
-	we should make from the results.
-
-Table 1 of Dushoff, Kain, and Bolker (2019) may be useful 
-	(although you are not required to use “clarity” language).
-
-Assignment 4
 Paper: Zwaan, B., Bijlsma, R., & Hoekstra, R. F. (1995).
 		ARTIFICIAL SELECTION FOR DEVELOPMENTAL TIME IN 
 		DROSOPHILA MELANOGASTER IN RELATION TO THE EVOLUTION OF AGING: 
@@ -35,13 +20,13 @@ to have a shorter developmental period than males, but this difference seems to 
 perhaps explains the absence of sex differences in this experiment. In the fast lines, relaxation of selection resulted in
 a significantly increased developmental time."
 
-Describe the Issue: The authours cannot say "they sexes did not respond differently 
-	to selection" without an equivalence test. 
-Further, the cited study says the effect becomes less prevalent at high densities, 
-	not that it disappears entirely.
+Describe the Issue: The authours cannot say "they sexes did not respond differently to selection" without an equivalence test. 
 
-Revised Statement: Although females typically have shorter developmental periods 
-	than males, the effect of sex on developmental time here was statistically unclear.
+JD: I agree that they absolutely need an equivalence test, but I don't like that language anyway. There is still presumed to be _some_ difference if you don't accept the null.
+
+Further, the cited study says the effect becomes less prevalent at high densities, not that it disappears entirely.
+
+Revised Statement: Although females typically have shorter developmental periods than males, the effect of sex on developmental time here was statistically unclear.
 
 
 Test 2: Body Weight
@@ -134,3 +119,6 @@ longer at 25°C (fig. 7).
 
 Bonus Issue: Figure 8 is hard to read
 
+JD: Good attention to effect sizes. Could they also have benefited from more attention to CIs? Grade: 2.1/3. 
+
+Bonus: You have a tendency to type authours instead of authors.
