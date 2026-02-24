@@ -1,4 +1,3 @@
-JD: Moved file and deleted front material
 
 ## Assignment 4
 
@@ -20,7 +19,7 @@ to have a shorter developmental period than males, but this difference seems to 
 perhaps explains the absence of sex differences in this experiment. In the fast lines, relaxation of selection resulted in
 a significantly increased developmental time."
 
-Describe the Issue: The authours cannot say "they sexes did not respond differently to selection" without an equivalence test. 
+Describe the Issue: The authors cannot say "they sexes did not respond differently to selection" without an equivalence test. 
 
 JD: I agree that they absolutely need an equivalence test, but I don't like that language anyway. There is still presumed to be _some_ difference if you don't accept the null.
 
@@ -64,7 +63,7 @@ Describe Issues:
 They say that "as expected, males were larger than females" but to what degree?
 	D. melanogaster males are usually some % lighter than females. "Relaxed fast lines
 	had smaller body weights than selected fast lines, which was
-	not anticipated." The authours need to present the size of the effect (how much), not just whether there was an effect or not
+	not anticipated." The authors need to present the size of the effect (how much), not just whether there was an effect or not
 	they should have presented how much lighter each type of male was.
 	"one can conclude that selection [...] had exerted no effect on the grossbody composition of the flies" this statement is incorrect.
 
@@ -120,5 +119,3 @@ longer at 25°C (fig. 7).
 Bonus Issue: Figure 8 is hard to read
 
 JD: Good attention to effect sizes. Could they also have benefited from more attention to CIs? Grade: 2.1/3. 
-
-Bonus: You have a tendency to type authours instead of authors.
