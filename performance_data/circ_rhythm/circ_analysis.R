@@ -9,6 +9,8 @@ library(lubridate) #fix date format for damr
 library(ggetho) #graphing activity
 library(readr)
 
+setwd("~/QMEE/performance_data/circ_rhythm")
+
 '
 basic starting stuff feb 22 - from ciracadian_analysis.R
 
@@ -53,15 +55,29 @@ metadata$lineage <- as.factor(metadata$lineage)
 metadata$treatment <- as.factor(metadata$treatment)
 metadata$TrtLin <- as.factor(metadata$TrtLin)
 metadata$sex <- as.factor(metadata$sex)
-#metadata$region_id <- as.factor(metadata$region_id)
+metadata$region_id <- as.factor(metadata$region_id)
+metadata$status <- as.factor(metadata$status)
+
 
 dt <- load_dam(metadata[status=="OK"], FUN = sleepr::sleep_dam_annotation) #load only good data
 summary(dt) 
 
 #shows one replicate at a time
-ggetho(dt[xmv(TrtLin) == 'C1'], aes(z=activity)) +
+ggetho(dt[xmv(TrtLin) == 'C4'], aes(z=activity)) +
   stat_tile_etho() + #shows the response var in the (colour) z axis
   stat_ld_annotations()
+#each tile is a 30 minute mean, each row is 1 indivual
+#will refine visualizations in the future
+
+ggetho(dt[xmv(TrtLin) == 'S4'], aes(z=activity)) +
+  stat_tile_etho() + #shows the response var in the (colour) z axis
+  stat_ld_annotations()
+
+bar_plot <- ggetho(dt[xmv(TrtLin) == 'C1'], aes(x=t, z=moving)) + stat_bar_tile_etho()
+bar_plot
+
+#todo: add light/dark cycle in background, rename id
+
 
 #show all
 allplot <- ggetho(dt, aes(x=t, y=TrtLin, z=moving)) + stat_bar_tile_etho()
