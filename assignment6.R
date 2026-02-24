@@ -1,3 +1,4 @@
+## JD: I never knew this trick!
 '
 Assignment 6 Linear Models Feb 10
 
@@ -25,6 +26,11 @@ options(contrasts=c("contr.sum", "contr.poly"))
 
 library(tidyverse)
 
+## JD: I had to add this; please check that your script runs beginning to end in a clean session.
+
+library(emmeans)
+
+## JD: I like this style a lot, but please remind us in README or transmittal email how to make this file.
 alan <- readRDS("clean_alan_gen25.rds")
 
 #SMALL MODEL----
@@ -40,6 +46,7 @@ performance::check_model(linalan_null)
 #the basic model is a better fit to my data than the null model
 #even without including Generation in linalanbasic, this model
   #is better than the null model
+## JD: Not sure what this last comment means, is that part shown?
 '
 linalanbasic vs the null
 in linalanbasic:
@@ -48,10 +55,11 @@ the linearity reference line is flatter and more horizontal
 residuals fall along the normality line
 the variance is more homogenous
 and all points fall inside cooks distance in the influential observations plot
-
 '
+
 #a direct comparison of the two models supports what i said above
 anova(linalanbasic, linalan_null)
+## JD: This seems deep. A model can explain a lot of variance sometimes without matching assumptions well.
 
 #but i have more variables, and can make a better model:
 #BIG MODEL (includes hypothesis about Females vs Males----
@@ -97,7 +105,7 @@ mazeorder_linalan reduces the error in my model more than linalanbasic, so I thi
 
 i dont think i should add more variables to my model because it could be overfitted
   especially since I have a ton of data
-
+JD: This seems backwards. The more data you have the more parameters you can support.
 '
 
 linalan_final <- mazeorder_linalan
@@ -110,6 +118,7 @@ between the basic model and the final model, the final model seems better
 
 i am ignoring the advice about VIF because I dont want to throw out relevant predictors
 i will keep it in mind when interpreting results but i wont  make any changes at this point
+JD: There may not even be anything to keep in mind. VIF means some of your estimates will have bigger CIs because different variables are explaining similar things. If predictors are relevant, this means you have real uncertainty and are seeing it more or less properly.
 Q-Q residuals plot shows that my data has a short left tail
   the data are larger than would be expected from a normal distribution
   i think this could indicate a floor effect in my lightscore assay
@@ -136,6 +145,7 @@ plot(obs, pred,
 abline(0, 1, lty = 2)
 
 
+## JD: I feel there must be a better way to order them than observation index! It's fun this way, but maybe you could learn more by ordering them
 #different type of prediction (these plots are fun)
 simulate(linalan_final, nsim = 20)
 obs <- model.response(model.frame(linalan_final))
@@ -188,6 +198,6 @@ notes from feb 13 class
 #still better to compute contrasts
 '
 
-
+## Grade 2.1/3
 
 
